@@ -57,7 +57,7 @@ extern std::vector<healthInfo_t>g_healthInfo;
 #pragma warning( disable : 4018 )
 #pragma warning( disable : 4101 )
 
-#define DEBUGMODE
+//#define DEBUGMODE
 
 typedef void(__thiscall* PaintTraverseFn)(void*, unsigned int, bool, bool);
 extern PaintTraverseFn oPaintTraverse;

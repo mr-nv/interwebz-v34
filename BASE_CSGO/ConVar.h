@@ -36,9 +36,9 @@ namespace ValveSDK
 	class ICvar
 	{
 	public:
-		virtual void funcy() = 0;
-		virtual void funcy1() = 0;
-		virtual ConVar *FindVar(const char *var_name) = 0;
-		virtual const ConVar *FindVar(const char *var_name) const = 0;
+		ConVar* FindVar(const char* var_name)
+		{
+			return getvfunc<ConVar*(__thiscall*)(void*, const char*)>(this, 7)(this, var_name);
+		}
 	};
 }

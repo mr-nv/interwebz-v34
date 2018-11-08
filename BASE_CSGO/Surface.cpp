@@ -60,6 +60,8 @@ void __fastcall hkdPaintTraverse(void* ecx, void* edx, unsigned int vguiPanel, b
 	static ValveSDK::ConVar *pMouseEnable = g_Valve.pConVar->FindVar("cl_mouseenable");
 
 	g_Draw.DrawStringA(g_Draw.m_WatermarkFont,true,250,20,255,255,255,255,"INTERWEBZ CSS");
+
+#ifdef DEBUGMODE
 	if (g_Valve.pEngine->IsInGame() && g_Valve.pEngine->IsConnected())
 	{
 		CBaseEntity* pMe = g_Valve.pEntList->GetClientEntity(g_Valve.pEngine->GetLocalPlayer());
@@ -78,6 +80,7 @@ void __fastcall hkdPaintTraverse(void* ecx, void* edx, unsigned int vguiPanel, b
 			}
 		}
 	}
+#endif
 
 	if(GetAsyncKeyState(VK_INSERT) & 1)
 		bMenu = !bMenu;

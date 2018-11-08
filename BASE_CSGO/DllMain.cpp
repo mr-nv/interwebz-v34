@@ -22,7 +22,7 @@ static HMODULE DllBaseAddress() // works with manually mapped dlls (will get us 
 	return len ? (HMODULE)info.AllocationBase : NULL;
 }
 
-// spiszheno otkuda to idk lol
+// stolen from keybode's src
 void ApplySendPacket(void)
 {
 	auto CL_RunPrediction = (uintptr_t)(GetModuleHandleW(L"engine.dll")) + 0x464D4;
@@ -45,6 +45,8 @@ void ApplySendPacket(void)
 
 void InitDllThread(void* ptr)
 {	
+	while (!GetModuleHandleA("serverbrowser.dll")) Sleep(200);
+
 	g_Valve.initSDK();
 
 	if (!g_Valve.isInitiated())

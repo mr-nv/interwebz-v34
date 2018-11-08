@@ -64,7 +64,7 @@ VOID CValve::initSDK()
 	pModelRender = GetInterface<ValveSDK::IVModelRender>("engine.dll", "VEngineModel");
 	pRenderView = GetInterface<ValveSDK::IVRenderView>("engine.dll", "VEngineRenderView", true, 1);
 	pMaterialSystem = GetInterface<ValveSDK::IMaterialSystem>("materialsystem.dll", "VMaterialSystem");
-	pConVar = GetInterface<ValveSDK::ICvar>("engine.dll", "VEngineCvar");
+	pConVar = GetInterface<ValveSDK::ICvar>("engine.dll", "VEngineCvar", true, 1);
 	pGameEventManager = GetInterface<ValveSDK::IGameEventManager>("engine.dll", "GAMEEVENTSMANAGER", true, 1);
 
 #ifdef DEBUGMODE

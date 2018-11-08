@@ -98,6 +98,10 @@ void Prediction(ValveSDK::CUserCmd* pCmd, CBaseEntity* pLocalPlayer, float fCurT
 
 void MyMovePacket(int sequence_number)
 {
+	static auto cl_pred_optimize = g_Valve.pConVar->FindVar("cl_pred_optimize");
+	if (cl_pred_optimize)
+		cl_pred_optimize->m_nValue = 0;
+
 	ValveSDK::CUserCmd *pUserCmd = g_Valve.pInput->GetUserCmd(sequence_number);
 
 	CBaseEntity* pMe = g_Valve.pEntList->GetClientEntity(g_Valve.pEngine->GetLocalPlayer());
